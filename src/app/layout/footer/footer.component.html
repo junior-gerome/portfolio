@@ -1,0 +1,84 @@
+ <footer
+      class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- About -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-xl">NG</span>
+              </div>
+              <span class="text-xl font-bold text-gray-900 dark:text-white">
+                NGUEP MANYO Junior Gerome
+              </span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Développeur Full Stack passionné par les technologies web
+              modernes. Spécialisé en Angular et Spring boot.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                *ngFor="let social of socialLinks"
+                [href]="social.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                [attr.aria-label]="social.name"
+              >
+                <span class="text-2xl">{{ social.icon }}</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3
+              class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
+            >
+              Navigation
+            </h3>
+            <ul class="space-y-2">
+              <li *ngFor="let link of quickLinks">
+                <a
+                  [routerLink]="link.path"
+                  class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3
+              class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
+            >
+              Contact
+            </h3>
+            <ul class="space-y-2">
+              <li class="text-gray-600 dark:text-gray-400">
+                📧 jnguepmanyo&#64;gmail.com
+              </li>
+              <li class="text-gray-600 dark:text-gray-400">
+                📱 +237 6 51 76 95 55 / +237 698 791 966
+              </li>
+              <li class="text-gray-600 dark:text-gray-400">
+                📍 Douala, Cameroun
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <p class="text-center text-gray-600 dark:text-gray-400 text-sm">
+            &copy; {{ currentYear }}  NGUEP MANYO Junior Gerome.
+            Tous droits réservés. Construit avec ❤️ Angular et Tailwind Css.
+          </p>
+        </div>
+      </div>
+    </footer>

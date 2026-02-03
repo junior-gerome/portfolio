@@ -1,0 +1,143 @@
+<div class="min-h-screen py-20 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            À propos de moi
+          </h1>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto"
+          ></div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <!-- Image -->
+          <div class="flex justify-center">
+            <div class="relative">
+              <div
+                class="w-80 h-80 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl transform rotate-6"
+              ></div>
+             <div
+               class="w-80 h-80 bg-gray-300 dark:bg-gray-700 rounded-2xl absolute top-0 left-0 overflow-hidden flex items-center justify-center"
+              ><img
+                src="assets/icons/junior.png"
+                alt="avatar"
+                class="w-full h-full object-cover opacity-75 transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Passionné par le développement web
+            </h2>
+            <div class="space-y-4 text-gray-600 dark:text-gray-300">
+              <p>
+                Bonjour ! Je suis NGUEP MANYO JUNIOR GEROME, développeur Full
+                Stack avec plus de 2 ans d'expérience dans la création
+                d'applications web modernes et performantes.
+              </p>
+              <p>
+                Ma passion pour le développement a commencé très tôt, et depuis,
+                je n'ai cessé d'apprendre et de me perfectionner dans les
+                technologies web les plus récentes. Je suis spécialisé en
+                Angular et Spring boot, mais je reste toujours curieux et ouvert
+                aux nouvelles technologies.
+              </p>
+              <p>
+                J'aime transformer des idées complexes en solutions simples et
+                élégantes. Mon objectif est de créer des applications qui
+                offrent non seulement une excellente expérience utilisateur,
+                mais qui sont également maintenables et scalables.
+              </p>
+            </div>
+            <div class="mt-8">
+              <a
+                href="/assets/CV_2026-01-13_JUNIOR GEROME_NGUEP MANYO.pdf"
+                download
+              >
+                <app-button variant="primary" size="lg">
+                  📥 Télécharger mon CV
+                </app-button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values -->
+        <div class="mb-16">
+          <h2
+            class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+          >
+            Mes valeurs
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              *ngFor="let value of values"
+              class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl"
+            >
+              <div class="text-4xl mb-4">{{ value.icon }}</div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                {{ value.title }}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                {{ value.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="grid  md:grid-cols-2 gap-12 ">
+          <!-- Education -->
+          <div class="flex justify-between">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              🎓 Formation
+            </h2>
+            <div class="space-y-4">
+              <div
+                *ngFor="let edu of education"
+                class="border-l-4 border-primary-600 pl-4"
+              >
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  {{ edu.degree }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400">{{ edu.school }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-500">
+                  {{ edu.year }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <!-- <div>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              🏆 Certifications
+            </h2>
+            <div class="space-y-4">
+              <div
+                *ngFor="let cert of certifications"
+                class="border-l-4 border-primary-600 pl-4"
+              >
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  {{ cert.name }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  {{ cert.issuer }}
+                </p>
+                <p class="text-sm text-gray-500 dark:text-gray-500">
+                  {{ cert.year }}
+                </p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>

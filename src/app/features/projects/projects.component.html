@@ -1,0 +1,94 @@
+<div class="min-h-screen py-20 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Mes Projets
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Découvrez quelques-uns de mes travaux récents
+          </p>
+          <div class="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mt-4"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <app-button
+            *ngFor="let filter of filters"
+            [variant]="selectedFilter === filter ? 'primary' : 'ghost'"
+            (clicked)="setFilter(filter)"
+          >
+            {{ filter }}
+          </app-button>
+        </div>
+
+        <!-- Loading State -->
+        <app-loader *ngIf="loading" text="Chargement des projets..."></app-loader>
+
+        <!-- Projects Grid -->
+        <div *ngIf="!loading" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <app-project-card
+            *ngFor="let project of filteredProjects"
+            [imageUrl]="project.imageUrl"
+            [imageAlt]="project.title"
+          >
+            <div class="space-y-4">
+              <!-- Title -->
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                {{ project.title }}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-gray-600 dark:text-gray-300">
+                {{ project.description }}
+              </p>
+
+              <!-- Technologies -->
+              <div class="flex flex-wrap gap-2">
+                <app-badge
+                  *ngFor="let tech of project.technologies"
+                  variant="primary"
+                  size="sm"
+                >
+                  {{ tech }}
+                </app-badge>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex gap-3 pt-4">
+                <app-button
+                  *ngIf="project.githubUrl"
+                  variant="outline"
+                  size="sm"
+                  (clicked)="openLink(project.githubUrl)"
+                >
+                  💻 Code
+                </app-button>
+                <app-button
+                  *ngIf="project.liveUrl"
+                  variant="primary"
+                  size="sm"
+                  (clicked)="openLink(project.liveUrl)"
+                >
+                  🚀 Demo
+                </app-button>
+              </div>
+            </div>
+          </app-project-card>
+        </div>
+
+        <!-- Empty State -->
+        <div
+          *ngIf="!loading && filteredProjects.length === 0"
+          class="text-center py-20"
+        >
+          <div class="text-6xl mb-4">🔍</div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            Aucun projet trouvé
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Essayez un autre filtre
+          </p>
+        </div>
+      </div>
+    </div>

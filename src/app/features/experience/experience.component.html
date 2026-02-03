@@ -1,0 +1,73 @@
+ <div class="min-h-screen py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Mon Expérience
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Mon parcours professionnel
+          </p>
+          <div class="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mt-4"></div>
+        </div>
+
+        <!-- Loading State -->
+        <app-loader *ngIf="loading" text="Chargement de l'expérience..."></app-loader>
+
+        <!-- Timeline -->
+        <div *ngIf="!loading" class="relative">
+          <!-- Vertical Line -->
+          <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary-300 dark:bg-primary-700"></div>
+
+          <!-- Experience Items -->
+          <div *ngFor="let exp of experiences; let i = index" class="relative mb-12">
+            <div [class]="getItemClasses(i)">
+              <!-- Timeline Dot -->
+              <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-600 rounded-full transform -translate-x-1/2 ring-4 ring-white dark:ring-gray-900"></div>
+
+              <!-- Content Card -->
+              <div [class]="getCardClasses(i)">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                  <!-- Header -->
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                      <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        {{ exp.position }}
+                      </h3>
+                      <p class="text-lg text-primary-600 dark:text-primary-400 font-medium">
+                        {{ exp.company }}
+                      </p>
+                    </div>
+                    <div class="mt-2 md:mt-0 text-gray-600 dark:text-gray-400">
+                      📍 {{ exp.location }}
+                    </div>
+                  </div>
+
+                  <!-- Date -->
+                  <div class="flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400">
+                    <span>📅</span>
+                    <span>{{ formatDate(exp.startDate) }} - {{ formatDate(exp.endDate) }}</span>
+                  </div>
+
+                  <!-- Description -->
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    {{ exp.description }}
+                  </p>
+
+                  <!-- Technologies -->
+                  <div class="flex flex-wrap gap-2">
+                    <app-badge
+                      *ngFor="let tech of exp.technologies"
+                      variant="primary"
+                      size="sm"
+                    >
+                      {{ tech }}
+                    </app-badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

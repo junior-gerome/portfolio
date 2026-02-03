@@ -1,0 +1,61 @@
+<div class="min-h-screen py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Mes Compétences
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Technologies et outils que je maîtrise
+          </p>
+          <div class="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mt-4"></div>
+        </div>
+
+        <!-- Loading State -->
+        <app-loader *ngIf="loading" text="Chargement des compétences..."></app-loader>
+
+        <!-- Skills Grid -->
+        <div *ngIf="!loading" class="space-y-12">
+          <div *ngFor="let category of skillCategories" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              {{ category.name }}
+            </h2>
+            <div class="space-y-6">
+              <div *ngFor="let skill of category.skills" class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="text-lg font-medium text-gray-900 dark:text-white">
+                    {{ skill.name }}
+                  </span>
+                  <app-badge [variant]="getBadgeVariant(skill.level)">
+                    {{ skill.level }}%
+                  </app-badge>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                  <div
+                    class="h-full rounded-full transition-all duration-1000 ease-out"
+                    [class]="getProgressBarColor(skill.level)"
+                    [style.width.%]="skill.level"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div *ngIf="!loading" class="mt-16">
+          <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
+            Outils & Technologies
+          </h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            <app-badge
+              *ngFor="let tool of tools"
+              [variant]="'secondary'"
+              [size]="'lg'"
+            >
+              {{ tool }}
+            </app-badge>
+          </div>
+        </div>
+      </div>
+    </div>

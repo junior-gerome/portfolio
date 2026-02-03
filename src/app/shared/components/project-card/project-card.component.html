@@ -1,0 +1,22 @@
+<div [class]="projectcardClasses">
+      <div *ngIf="imageUrl" class="overflow-hidden">
+        <img
+           src="{{ imageUrl }}"
+           alt="Image du projet"
+           title="Image du projet"
+
+           [attr.alt]="imageAlt || title || 'Image du projet'"
+           [attr.title]="imageAlt || title || 'Image du projet'"
+          class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div class="p-6">
+        <h3 *ngIf="title" class="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+          {{ title }}
+        </h3>
+        <p *ngIf="description" class="text-gray-600 dark:text-gray-300 mb-4">
+          {{ description }}
+        </p>
+        <ng-content></ng-content>
+      </div>
+    </div>

@@ -1,0 +1,204 @@
+    <div
+      class="min-h-screen py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Contactez-moi
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Une question ? Un projet ? N'hésitez pas à me contacter !
+          </p>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mt-4"
+          ></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Contact Form -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              Envoyez-moi un message
+            </h2>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <!-- Name -->
+              <div class="mb-6">
+                <label
+                  class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >
+                  Nom complet *
+                </label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  placeholder="Votre nom"
+                />
+                <p
+                  *ngIf="isFieldInvalid('name')"
+                  class="mt-2 text-sm text-red-600 dark:text-red-400"
+                >
+                  Le nom est requis
+                </p>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-6">
+                <label
+                  class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  placeholder="votre@email.com"
+                />
+                <p
+                  *ngIf="isFieldInvalid('email')"
+                  class="mt-2 text-sm text-red-600 dark:text-red-400"
+                >
+                  Email valide requis
+                </p>
+              </div>
+
+              <!-- Subject -->
+              <div class="mb-6">
+                <label
+                  class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >
+                  Sujet *
+                </label>
+                <input
+                  type="text"
+                  formControlName="subject"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  placeholder="Sujet de votre message"
+                />
+                <p
+                  *ngIf="isFieldInvalid('subject')"
+                  class="mt-2 text-sm text-red-600 dark:text-red-400"
+                >
+                  Le sujet est requis
+                </p>
+              </div>
+
+              <!-- Message -->
+              <div class="mb-6">
+                <label
+                  class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                >
+                  Message *
+                </label>
+                <textarea
+                  formControlName="message"
+                  rows="5"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  placeholder="Votre message..."
+                ></textarea>
+                <p
+                  *ngIf="isFieldInvalid('message')"
+                  class="mt-2 text-sm text-red-600 dark:text-red-400"
+                >
+                  Le message est requis (min. 10 caractères)
+                </p>
+              </div>
+
+              <!-- Submit Button -->
+              <app-button
+                type="submit"
+                variant="primary"
+                size="lg"
+                [fullWidth]="true"
+                [loading]="isSubmitting"
+                [disabled]="contactForm.invalid || isSubmitting"
+              >
+                {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer le message' }}
+              </app-button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="space-y-6">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Informations de contact
+              </h2>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">📧</div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:jnguepmanyo&#64;gmail.com"
+                      class="text-primary-600 dark:text-primary-400 hover:underline"
+                    >
+                      jnguepmanyo&#64;gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">📱</div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">
+                      Téléphone
+                    </h3>
+                    <a
+                      href="tel:+237651769555"
+                      class="text-primary-600 dark:text-primary-400 hover:underline"
+                    >
+                      +237 651 769 555 / +237 698 791 966
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">📍</div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">
+                      Localisation
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                      Douala, Cameroun
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                Suivez-moi
+              </h3>
+              <div class="flex gap-4">
+                <a
+                  *ngFor="let social of socials"
+                  [href]="social.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-2xl hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-colors"
+                >
+                  {{ social.icon }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <app-toast
+      *ngIf="showToast"
+      [message]="toastMessage"
+      [type]="toastType"
+      (closed)="showToast = false"
+    ></app-toast>
