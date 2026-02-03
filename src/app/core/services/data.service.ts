@@ -16,11 +16,12 @@ export class DataService {
         id: 1,
         title: "Application de gestion d'ecole primaire",
         description:
-          'Une plateforme de gestion complète avec gestion des inscription, la production des effets accademique et paiement',
-        technologies: ['Angular', 'MysQL', 'Tailwind CSS', 'Spring boot'],
-        imageUrl: 'assets/icons/groupescolaire.png',
-        githubUrl: 'https://github.com/username/project1',
-        liveUrl: 'https://project1.com',
+          "Une plateforme de gestion complète avec gestion des inscription, la production des effets accademique et paiement",
+        technologies: ["Angular", "MysQL", "Tailwind CSS", "Spring boot"],
+        imageUrl: "assets/icons/groupescolaire.png",
+        githubUrl:
+          "https://github.com/junior-gerome/junior-gerome-gestion_ecole_primaire",
+        liveUrl: "https://project1.com",
         featured: true,
       },
       {
@@ -28,22 +29,22 @@ export class DataService {
         title:
           "Application de gestion des note de l'Institu des beaux Art de Nkongsamba (IBA)",
         description:
-          'Application de gestion avec production des releve de notes, des certificats de scaolarite, des carte d\'etudiants',
-        technologies: ['Blade', 'Laravel', 'MysQL'],
-        imageUrl: 'assets/icons/iba.png',
-        githubUrl: 'https://github.com/username/project2',
-        liveUrl: 'https//project2.com',
+          "Application de gestion avec production des releve de notes, des certificats de scaolarite, des carte d'etudiants",
+        technologies: ["Blade", "Laravel", "MysQL"],
+        imageUrl: "assets/icons/iba.png",
+        githubUrl: "https://github.com/username/project2",
+        liveUrl: "https//project2.com",
         featured: true,
       },
       {
         id: 3,
-        title: 'Application de Gestion de Tontine ',
+        title: "Application de Gestion de Tontine ",
         description:
-          'Dashboard météo avec prévisions et visualisations interactives',
-        technologies: ['Angular', 'Chart.js', 'API REST', 'Tailwind CSS'],
-        imageUrl: 'https://via.placeholder.com/400x300',
-        githubUrl: 'https://github.com/username/project3',
-        liveUrl: 'https://project3.com',
+          "Dashboard météo avec prévisions et visualisations interactives",
+        technologies: ["Angular", "Chart.js", "API REST", "Tailwind CSS"],
+        imageUrl: "https://via.placeholder.com/400x300",
+        githubUrl: "https://github.com/username/project3",
+        liveUrl: "https://project3.com",
         featured: false,
       },
     ];
