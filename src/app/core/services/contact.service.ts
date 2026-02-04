@@ -18,7 +18,7 @@ export class ContactService {
       message: 'Message envoyé avec succès!'
     }).pipe(delay(1000));
 
-    // Version avec vraie API:
+    //  Avec vraie API:
     // return this.http.post<ContactResponse>(this.apiUrl, formData);
   }
 }

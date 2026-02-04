@@ -19,8 +19,8 @@
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-1">
+            @for( link of navLinks; track link){
             <a
-              *ngFor="let link of navLinks"
               [routerLink]="link.path"
               routerLinkActive="text-primary-600 dark:text-primary-400"
               [routerLinkActiveOptions]="{ exact: link.path === '/' }"
@@ -28,6 +28,7 @@
             >
               {{ link.label }}
             </a>
+          }
           </div>
 
           <!-- Right Side (Theme + Mobile Menu) -->
@@ -46,41 +47,40 @@
             <!-- Mobile Menu Button -->
             <button
               (click)="toggleMobileMenu()"
-              class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              class="md:hidden p-2 rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-800"
               aria-label="Toggle menu"
             >
               <svg
-                class="w-6 h-6"
+                class="w-6 h-6 dark:bg-primary-900"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
+                viewBox="0 0 24 24 "
               >
+                @if (!mobileMenuOpen) {
                 <path
-                  *ngIf="!mobileMenuOpen"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h16"
-                />
+                />}@else {
                 <path
-                  *ngIf="mobileMenuOpen"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M6 18L18 6M6 6l12 12"
-                />
+                />}
               </svg>
             </button>
           </div>
         </div>
 
         <!-- Mobile Menu -->
+         @if (mobileMenuOpen) {
         <div
-          *ngIf="mobileMenuOpen"
           class="md:hidden py-4 border-t border-gray-200 dark:border-gray-700"
         >
+        @for (link of navLinks; track link) {
           <a
-            *ngFor="let link of navLinks"
             [routerLink]="link.path"
             routerLinkActive="text-primary-600 dark:text-primary-400 bg-gray-100 dark:bg-gray-800"
             [routerLinkActiveOptions]="{ exact: link.path === '/' }"
@@ -89,6 +89,8 @@
           >
             {{ link.label }}
           </a>
+        }
         </div>
+      }
       </div>
     </nav>
