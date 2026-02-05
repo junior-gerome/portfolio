@@ -78,8 +78,8 @@
             Mes valeurs
           </h2>
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              *ngFor="let value of values"
+            @for (value of values; track value) {
+              <div
               class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl"
             >
               <div class="text-4xl mb-4">{{ value.icon }}</div>
@@ -90,6 +90,8 @@
                 {{ value.description }}
               </p>
             </div>
+            }
+            
           </div>
         </div>
 
@@ -101,8 +103,8 @@
               🎓 Formation
             </h2>
             <div class="space-y-4">
-              <div
-                *ngFor="let edu of education"
+              @for (edu of education; track edu) {
+                 <div
                 class="border-l-4 border-primary-600 pl-4"
               >
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -113,6 +115,8 @@
                   {{ edu.year }}
                 </p>
               </div>
+              }
+             
             </div>
           </div>
 
@@ -122,8 +126,8 @@
               🏆 Certifications
             </h2>
             <div class="space-y-4">
-              <div
-                *ngFor="let cert of certifications"
+              @for (cert of certifications; track cert) {
+                 <div
                 class="border-l-4 border-primary-600 pl-4"
               >
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -136,6 +140,8 @@
                   {{ cert.year }}
                 </p>
               </div>
+              }
+             
             </div>
           </div> -->
         </div>

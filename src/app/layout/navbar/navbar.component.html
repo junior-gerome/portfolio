@@ -1,84 +1,84 @@
 <nav
-      class="fixed top-0 left-0 right-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <!-- Logo -->
-          <a routerLink="/" class="flex items-center space-x-2">
-            <div
-              class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-white font-bold text-xl">NG</span>
-            </div>
-            <span
-              class="hidden sm:block text-xl font-bold text-gray-900 dark:text-white"
-            >
-              NGUEP MANYO Junior Gerome
-            </span>
-          </a>
-
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-1">
-            @for( link of navLinks; track link){
-            <a
-              [routerLink]="link.path"
-              routerLinkActive="text-primary-600 dark:text-primary-400"
-              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-              class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              {{ link.label }}
-            </a>
-          }
-          </div>
-
-          <!-- Right Side (Theme + Mobile Menu) -->
-          <div class="flex items-center space-x-4">
-            <!-- Theme Switcher -->
-            <button
-              (click)="toggleTheme()"
-              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle theme"
-            >
-              <span class="text-2xl">{{
-                themeService.isDarkMode() ? '☀️' : '🌙'
-              }}</span>
-            </button>
-
-            <!-- Mobile Menu Button -->
-            <button
-              (click)="toggleMobileMenu()"
-              class="md:hidden p-2 rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-label="Toggle menu"
-            >
-              <svg
-                class="w-6 h-6 dark:bg-primary-900"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24 "
-              >
-                @if (!mobileMenuOpen) {
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />}@else {
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />}
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Menu -->
-         @if (mobileMenuOpen) {
+  class=" fixed top-0 left-0 right-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm "
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center space-x-2">
         <div
-          class="md:hidden py-4 border-t border-gray-200 dark:border-gray-700"
+          class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center"
         >
+          <span class="text-white font-bold text-xl">NG</span>
+        </div>
+        <span
+          class="hidden sm:block text-xl font-bold text-gray-900 dark:text-white"
+        >
+          NGUEP MANYO Junior Gerome
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-1">
+        @for (link of navLinks; track link) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="text-primary-600 dark:text-primary-400"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <!-- Right Side (Theme + Mobile Menu) -->
+      <div class="flex items-center space-x-4">
+        <!-- Theme Switcher -->
+        <button
+          (click)="toggleTheme()"
+          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Toggle theme"
+        >
+          <span class="text-2xl">{{
+            themeService.isDarkMode() ? "☀️" : "🌙"
+          }}</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          (click)="toggleMobileMenu()"
+          class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+          aria-label="Toggle menu"
+        >
+          <svg
+            class="w-6 h-6 dark:bg-primary-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24 "
+          >
+            @if (!mobileMenuOpen) {
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            } @else {
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            }
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    @if (mobileMenuOpen) {
+      <div class="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
         @for (link of navLinks; track link) {
           <a
             [routerLink]="link.path"
@@ -90,7 +90,7 @@
             {{ link.label }}
           </a>
         }
-        </div>
-      }
       </div>
-    </nav>
+    }
+  </div>
+</nav>

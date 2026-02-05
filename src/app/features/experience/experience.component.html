@@ -12,15 +12,20 @@
         </div>
 
         <!-- Loading State -->
-        <app-loader *ngIf="loading" text="Chargement de l'expérience..."></app-loader>
+         @if (loading) {     
+             <app-loader  text="Chargement de l'expérience..."></app-loader>
+            }
+
 
         <!-- Timeline -->
-        <div *ngIf="!loading" class="relative">
+         @if (!loading) {
+           <div  class="relative">
           <!-- Vertical Line -->
           <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary-300 dark:bg-primary-700"></div>
 
           <!-- Experience Items -->
-          <div *ngFor="let exp of experiences; let i = index" class="relative mb-12">
+           @for (exp of experiences; track exp; let i = $index) {
+              <div  class="relative mb-12">
             <div [class]="getItemClasses(i)">
               <!-- Timeline Dot -->
               <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-600 rounded-full transform -translate-x-1/2 ring-4 ring-white dark:ring-gray-900"></div>
@@ -56,18 +61,24 @@
 
                   <!-- Technologies -->
                   <div class="flex flex-wrap gap-2">
-                    <app-badge
-                      *ngFor="let tech of exp.technologies"
+                    @for (tech of exp.technologies; track tech) {
+                      <app-badge
                       variant="primary"
                       size="sm"
                     >
                       {{ tech }}
                     </app-badge>
+                    }
+                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
+           }
+        
         </div>
+         }
+       
       </div>
     </div>

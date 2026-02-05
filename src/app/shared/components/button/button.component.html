@@ -14,6 +14,8 @@ class="px-4 py-2 rounded-xl bg-primary-600 text-white hover:bg-primary-700 trans
       [class]="buttonClasses"
       (click)="handleClick($event)"
     >
-      <span *ngIf="loading" class="animate-spin mr-2">⟳</span>
+    @if (loading) {
+      <span class="animate-spin mr-2">⟳</span>
+    }
       <ng-content></ng-content>
     </button>

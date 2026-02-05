@@ -46,6 +46,17 @@ export class DataService {
         liveUrl: "https://project3.com",
         featured: false,
       },
+      {
+        id: 4,
+        title: "Mon Portfolio",
+        description:
+          "Réalisation de mon portfolio; graçe à lui vous avez une  présentation  detaillé de moi et de mes différentes réalisations",
+        technologies: ["Angular", "Tailwind CSS"],
+        imageUrl: "assets/icons/portfolio.png",
+        githubUrl: "https://junior-gerome/portfolio/",
+        liveUrl: "https://junior-gerome.github.io/portfolio/",
+        featured: false,
+      },
     ];
     return of(projects);
   }
@@ -154,4 +165,5 @@ export class DataService {
     ];
     return of(posts);
   }
+ 
 }

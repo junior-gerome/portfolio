@@ -1,4 +1,5 @@
-<div *ngIf="visible" [class]="toastClasses" role="alert">
+@if(visible){
+<div [class]="toastClasses" role="alert">
       <div class="flex items-start">
         <div class="flex-shrink-0">
           <span class="text-2xl">{{ icon }}</span>
@@ -14,3 +15,4 @@
         </button>
       </div>
     </div>
+}

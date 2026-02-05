@@ -1,4 +1,5 @@
  <div [class]="containerClasses">
       <div [class]="spinnerClasses"></div>
-      <p *ngIf="text" class="mt-4 text-gray-600 dark:text-gray-400">{{ text }}</p>
+      @if (text) {      
+        <p  class="mt-4 text-gray-600 dark:text-gray-400">{{ text }}</p>}
     </div>

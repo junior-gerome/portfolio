@@ -12,16 +12,20 @@
         </div>
 
         <!-- Loading State -->
-        <app-loader *ngIf="loading" text="Chargement des compétences..."></app-loader>
+         @if (loading) {
+          <app-loader text="Chargement des compétences..."></app-loader>
+         }
+        
 
         <!-- Skills Grid -->
-        <div *ngIf="!loading" class="space-y-12">
-          <div *ngFor="let category of skillCategories" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+         @if (!loading) { <div  class="space-y-12">
+          @for (category of skillCategories; track category) {
+            <div  class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
               {{ category.name }}
             </h2>
             <div class="space-y-6">
-              <div *ngFor="let skill of category.skills" class="space-y-2">
+              @for (skill of category.skills; track skill) {<div  class="space-y-2">
                 <div class="flex justify-between items-center">
                   <span class="text-lg font-medium text-gray-900 dark:text-white">
                     {{ skill.name }}
@@ -38,24 +42,35 @@
                   ></div>
                 </div>
               </div>
+            }
+              
             </div>
           </div>
+          }
+          
         </div>
+      }
+       
 
         <!-- Tools & Technologies -->
-        <div *ngIf="!loading" class="mt-16">
+         @if (!loading) {
+          <div class="mt-16">
           <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
             Outils & Technologies
           </h2>
           <div class="flex flex-wrap justify-center gap-3">
-            <app-badge
-              *ngFor="let tool of tools"
+            @for (tool of tools; track tool) {
+              <app-badge
               [variant]="'secondary'"
               [size]="'lg'"
             >
               {{ tool }}
             </app-badge>
+            }
+            
           </div>
         </div>
+      }
+        
       </div>
     </div>

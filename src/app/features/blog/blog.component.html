@@ -12,11 +12,16 @@
         </div>
 
         <!-- Loading State -->
-        <app-loader *ngIf="loading" text="Chargement des articles..."></app-loader>
+         @if (loading) {
+                  <app-loader text="Chargement des articles..."></app-loader>
+         }
+
 
         <!-- Blog Posts Grid -->
-        <div *ngIf="!loading" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let post of blogPosts" class="group">
+         @if (!loading) {
+           <div  class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @for (post of blogPosts; track post) {
+              <div  class="group">
             <app-project-card
               [imageUrl]="post.imageUrl"
               [imageAlt]="post.title"
@@ -40,13 +45,15 @@
 
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2">
-                  <app-badge
-                    *ngFor="let tag of post.tags"
+                  @for (tag of post.tags; track tag) {
+                    <app-badge
                     variant="secondary"
                     size="sm"
                   >
                     {{ tag }}
                   </app-badge>
+                  }
+                  
                 </div>
 
                 <!-- Author -->
@@ -73,11 +80,15 @@
               </div>
             </app-project-card>
           </div>
+            }
+          
         </div>
+         }
+       
 
         <!-- Empty State -->
-        <div
-          *ngIf="!loading && blogPosts.length === 0"
+         @if (!loading && blogPosts.length === 0) {
+          <div
           class="text-center py-20"
         >
           <div class="text-6xl mb-4">📝</div>
@@ -88,16 +99,22 @@
             De nouveaux articles arrivent bientôt !
           </p>
         </div>
+         }
+        
 
         <!-- Newsletter Section -->
-        <div class="mt-20 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 md:p-12 text-center">
-          <h2 class="text-3xl font-bold text-white mb-4">
-            📬 Abonnez-vous à la newsletter
+        <div class="mt-20 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl  p-8 md:p-12 text-center">
+          <div class="flex  justify-center space-x-3">
+             <img src="assets/icons/email.png" alt="email" class="size-min"/>
+          <h2 class="text-3xl font-bold text-white mb-4 ">
+           Abonnez-vous à la newsletter
           </h2>
+          </div> 
+          
           <p class="text-white/90 text-lg mb-8">
             Recevez les derniers articles directement dans votre boîte mail
           </p>
-          <div class="max-w-md mx-auto flex gap-4">
+          <div class="max-w-md mx-auto flex justify-center gap-4">
             <input
               type="email"
               placeholder="Votre email"
