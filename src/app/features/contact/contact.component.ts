@@ -23,9 +23,21 @@ export class ContactComponent {
   toastType: "success" | "error" = "success";
 
   socials = [
-    { icon: "💻", url: "https://github.com/junior-gerome" },
-    { icon: "💼", url: "https://linkedin.com/in/junior-gerome" },
-    { icon: "🐦", url: "https://twitter.com/juniorNguep" },
+    {
+      name: "GitHub",
+      iconPath: "assets/icons/githublogo.png",
+      url: "https://github.com/junior-gerome",
+    },
+    {
+      name: "LinkedIn",
+      iconPath: "assets/icons/LinkedInLogo.png",
+      url: "https://linkedin.com/in/junior-gerome",
+    },
+    {
+      name: "Twitter",
+      iconPath: "assets/icons/twitterlogo.png",
+      url: "https://twitter.com/juniorNguep",
+    },
   ];
 
   constructor() {

@@ -32,7 +32,7 @@ export class FooterComponent {
     {
       name: "Email",
       url: "mailto:jnguepmanyo&#64;gmail.com",
-      iconPath: "assets/icons/email.png",
+      iconPath: "assets/icons/téléchargement.png",
     },
   ];
 
