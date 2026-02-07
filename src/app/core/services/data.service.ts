@@ -106,30 +106,30 @@ export class DataService {
         name: "Frontend",
         skills: [
           { id: 1, name: "Javascript", level: 65, category: "frontend" },
-          { id: 2, name: "Angular", level: 55, category: "frontend" },
+          { id: 2, name: "Angular", level: 40, category: "frontend" },
           { id: 3, name: "TypeScript", level: 55, category: "frontend" },
           { id: 4, name: "HTML/CSS", level: 90, category: "frontend" },
           { id: 5, name: "Tailwind CSS", level: 80, category: "frontend" },
-          { id: 6, name: "RxJS", level: 55, category: "frontend" },
+          { id: 6, name: "RxJS", level: 25, category: "frontend" },
         ],
       },
       {
         name: "Backend",
         skills: [
-          { id: 7, name: "Java", level: 70, category: "backend" },
-          { id: 8, name: "Spring boot", level: 55, category: "backend" },
+          { id: 7, name: "Java", level: 60, category: "backend" },
+          { id: 8, name: "Spring boot", level: 50, category: "backend" },
           { id: 9, name: "MysQL", level: 50, category: "backend" },
         ],
       },
       {
         name: "Outils & Autres",
         skills: [
-          { id: 10, name: "Git", level: 45, category: "tools" },
-          { id: 11, name: "Docker", level: 25, category: "tools" },
+          { id: 10, name: "Git", level: 25, category: "tools" },
+          { id: 11, name: "Docker", level: 20, category: "tools" },
           { id: 12, name: "Jest", level: 35, category: "tools" },
           { id: 13, name: "Figma", level: 25, category: "tools" },
           { id: 14, name: "Trello", level: 65, category: "tools" },
-          { id: 14, name: "Slack", level: 65, category: "tools" },
+          { id: 14, name: "Slack", level: 50, category: "tools" },
         ],
       },
     ];
@@ -165,5 +165,4 @@ export class DataService {
     ];
     return of(posts);
   }
- 
 }
