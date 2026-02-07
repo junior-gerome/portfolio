@@ -42,15 +42,25 @@
                       <p class="text-lg text-primary-600 dark:text-primary-400 font-medium">
                         {{ exp.company }}
                       </p>
-                    </div>
-                    <div class="mt-2 md:mt-0 text-gray-600 dark:text-gray-400">
-                      📍 {{ exp.location }}
+                    </div> <img
+                src="assets/icons/localisation.png"
+                alt="Localisation"
+                title="Ville et pays"
+                class="w-6 h-6 object-contain mr-2"
+              />
+                    <div class=" mt-2 md:mt-0 text-gray-600 dark:text-gray-400">
+                       {{ exp.location }}
                     </div>
                   </div>
 
                   <!-- Date -->
                   <div class="flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400">
-                    <span>📅</span>
+                    <img
+                src="assets/icons/calendar.png"
+                alt="Email"
+                title="calendar"
+                class="w-6 h-6 object-contain mt-1"
+              /> 
                     <span>{{ formatDate(exp.startDate) }} - {{ formatDate(exp.endDate) }}</span>
                   </div>
 

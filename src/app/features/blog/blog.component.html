@@ -29,7 +29,12 @@
               <div class="space-y-4">
                 <!-- Meta Info -->
                 <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-                  <span>📅 {{ formatDate(post.publishDate) }}</span>
+                  <img
+                src="assets/icons/calendar.png"
+                alt="Email"
+                title="Adresse email"
+                class="w-6 h-6 object-contain mt-1"
+              /> <span>{{ formatDate(post.publishDate) }}</span>
                   <span>⏱️ {{ post.readTime }} min</span>
                 </div>
 
